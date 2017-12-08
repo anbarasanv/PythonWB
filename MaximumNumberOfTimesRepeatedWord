@@ -1,0 +1,25 @@
+import re
+s = str(input())
+
+s = re.sub(r'[.,"":()?\d+\\]','',s)
+st=[]
+st = s.split(" ")
+print(st)
+r = dict()
+
+for x in st:
+    r[x]=0
+for y in st:
+    if y in r:
+        r[y]+=1
+maximum=0
+i=0
+print(r)
+for z in r:
+    if r[z] >=maximum:
+        maximum = r[z]
+
+ky =[key for key,value in r.items() if value == maximum]
+
+
+print("The maximum time repeated word is:",ky[0],"\nThe number of Repeated times:",r.get(ky[0]))

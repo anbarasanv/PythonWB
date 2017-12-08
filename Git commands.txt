@@ -1,3 +1,6 @@
+Common Git Commands:
+====================
+
 $ git config --global user.name "[name]"
 Sets the name you want a ached to your commit transactions
  $ git config --global user.email "[email address]"

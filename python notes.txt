@@ -1,0 +1,269 @@
+Python:
+======
+
+How to find the square root ? 
+------------------------------
+square root of a number x is y Such that y*y=x
+g | g*g | x/g | (g+x/g)/2 ==> new g 
+example : square root of (16) = 4.
+
+Programs : 1) Fixed Programs 2) Stored Programs
+
+Basic computer:
+---------------
+Memory => [control unit => ALU(+,-,*,/)] => I/O.
+
+TURING SIX PREMITIVES: MOVE LEFT, MOVE RIGHT, READ, WRIGHT, SCAN, DONOTHING
+
+Errors: Syntax, Static semantic, different.
+
+OBJECT:
+-------
+Python program manipulate Objects.
+Types of objects: Scaler, Non-Scaler
+Scaler: int, float, bool, NoneType (We can use type() function to find type of object)
+Non-Scaler: large lists.
+
+Type conversion : float(3), int(3.9), etc...
+Type of result always depend on the Operand types.
+*>> In division always result will be in float.
+i**j -> result will be  i to the power of j.
+
+Assignment Binding:
+A = B + C.
+left side is Variable and right side will be values.
+
+String Object:
+--------------
+Sequence of Charters.(It can be letter, Numbers, special charters ) 
+The * Operator: Multiplication between string and number.
+Example: Hi = Hello+(" "+ball)*2 := print(Hi) ==> Hello ball ball
+Inside print parenthesis comma will print space.
+By default Python input will be stings. 
+
+Branching:
+------------------------
+IF, IF ELSE, IF ELSEIF ELSE,
+IF <CONDITION>:
+IF <CONDITION>:
+ELSE:
+IF <CONDITION>:
+ELSEIF:<CONDITION>
+ELSE:
+
+Control Flow:(Loop)
+-------------------
+WHILE, FOR, DO WHILE
+WHILE <CONDITION>:
+FOR (VARIABLE) IN RANGE(N):
+
+>>RANGE(Start, Stop, Step) these arguments should be Integer. by default step value 1.
+>>BREAK: will exit from the innermost loop.
+>> len(string ) its a function to find out length of the string.
+>>Indexing : last char at -1, second last -2 and so on.
+
+Slicing Strings:
+----------------
+[start:stop:step]
+Example: S="ABCDEF" S[2:4] RESULT: CD (4 will not be displayed).
+>> String are "IMMUTABLE" Once its created can not be modified.
+
+Algorithms:
+-----------
+Guess and check, Approximation, Bisection.
+
+Functions:
+----------
+>>Functions used to implement decompositions.
+>>Decomposition means breaking up the modules and solves the problems.
+>>Encapsulation achieved by functions.
+Function characteristics:
+>>Has a Name, Parameters(0 or more), docstring (optional but recommended), Body, return
+function definition:
+def <name-of-function>(argument):
+    """  //doc string 
+ 
+    """
+    Body
+    return
+
+Variable Scope:
+---------------
+//global scope 
+    def f(x):
+        //local scope 
+        x=x+1
+        print('in f(x): x=',x)
+        return x
+    x=3
+    z=f(x)
+>>If nothing to return python by default returns None.
+>>Functions can be passed as arguments.
+Example:
+def func_a():
+    print 'inside a()'
+def func_b(z):
+    print 'inside function'
+    return z()
+print func_b(func_a)   // result : None (default python return value)
+
+>> Inside a function, can access variable defined outside. which means global and local variable can both have same name but the will not interfere each other.
+
+Example: Its legal to write below code:
+def g(y):
+    print(x) // x not initiated in this function its go outside and find the value of x
+    print(x+1)
+x=5
+g(x)
+print(x)
+
+Example: following code is illegal in Python 
+def h(y):
+    x+=1 # this should not modify the global variable. 
+x=5
+h(x)
+print(x)
+# Error will be : UnboundLocalError: local variable 'x' referenced before assignment
+
+Python Tutor is your best friend to help dry run of your code link below:
+http://www.pythontutor.com
+>>Functions can be nested.
+
+Tuples, Lists, Aliasing, Mutability, Cloning:
+---------------------------------------------
+Compound data type: a data type made of another data types.
+Compound data type: 1) Tuple 2)List 
+Tuples:
+-------
+>> sequence of data that can be any data type 
+>> Its is immutable 
+>> its declared as t=(), t=(2,"apple,3.0)
+>> it can be added like "(2,"apple",3.0)+(5,7) => (2,"apple",3.0,5,7)
+>> it can be sliced like "t[1:2] --> ("apple",), t[1:3]("apple",3.0)
+>> length of the this can be calculate like " len(t) --> 3
+>> since its immutable t[1]=4 which is error like " can not modify object ".
+>> Swap is easy (x,y) = (y,x)
+>> tuples can return more than one value, In the case of function there can be only one return object.
+Example: Return more than one value
+def quotient_and_reminder(x,y):
+    q = x // y #here the "//" make sure the result should be integer 
+    r = x % y
+    return (q,r)
+(quot,rem) = quotient_and_reminder(4,5)
+print ('quotient : '+quot,'reminder : '+rem)
+
+Lists:
+-----
+>>lists are Mutable.
+>>represented by variable = [val, val, val, ...]
+>>Indexing and slicing are same as tuples.
+>>we can add element at the end of the list using append like "L.append(5)" L is a object
+>>Adding two list is possible like "L=L1+L2
+>>using extend we can add list like L1=[1,2,3], L1.extend([0,5]) -> L1 = [2,1,3,0,5]
+>>using del function we can delete the list items like del (L(index))
+>>remove element at the end of the list by L.pop() and returns the value as item
+>>to remove a particular item, L.remove(element)
+>>if element exist in the list removes, more than one same kind of item occurs, deletes the first occurrence of the list, if not found gives error.
+>>String object can be converted to the list like if S="I<3 cs" is a string the List(s) now s = ['I', '<', '3', ' ', 'c', 's'] then we can also split the list by s.split('<') which will return ['I', '3 cs']
+>>its also possible to join list like L=['a','b','c'] if ''.join(L) will returns "abc" like wise '_'.join(L) will return "a_b_c". its convert list to string.
+>>It's possible to sort a list using functions like "sort" and "sorted" in this sort returns mutate list, where sorted also return but not mutate the list.
+>>the sorted function does not make directly any changes in the list  its only returns the changed values, in other hand sort make changes directly in the list.
+>>Example: L=[0,3,,4,2,1] L1=sorted(L) where L1=[0,1,2,3,4], L=[0,3,,4,2,1] hence L.sort() where L=[0,1,2,3,4] likewise L.reverse where L=[1,2,4,3,0]
+>>Since list is mutable, assigning one list to another will have only reference of them not copy of them so we can use clone to avoid that like fruit=apple[:] hence apple clone of the fruit.
+def rem_duplicates(L1,L2):
+    for e in L1:
+        if e in L2:
+            L1.remove(e)
+            
+def rem_duplicates(L1,L2):
+    L1_copy = L1[:] #taking clone
+    for e in L1_copy:
+        if e in L2:
+            L1.remove(e)
+
+Functions for list:
+my_list.append()
+my_list.insert(index,value)
+my_list.pop()
+my_list.pop()
+my_list.sort()
+my_list.reverse()
+my_list.count()
+my_list.index()
+my_list.remove()
+del my_list[0]
+            
+Recursion:
+----------
+>>Recursion is a way to design solutions to problems by divide-and-conquer.
+>>A programming technique where a function calls itself it called recursion.
+>>Each recursive call to a function creates its own scope or environment.
+>>flow of control passes back to previous scope once function call returns value.
+>>Tower of HANOI, factorial, palindrome,  
+
+Dictionary:
+-----------
+Example: dic = {'key':'value','key':'value', ..}
+To add a entry: dic['key']='value'
+To Test already exist or not: 'key' in dic -> true | false 
+To delete an entry: del(dic['key'])
+To get all of the keys in the dictionary: dic.keys() -- order will not guaranty
+To get all of the values in the dictionary: dic.values(); -- order will not guaranty
+keys are immutable (int,float,tuple,boolean,another dictionary)
+
+List vs Dictionary:
+-------------------
+
+List:
+=====
+Ordered of sequence elements.
+look up elements by an integer index.
+indices have an order 
+index is an integer 
+
+Dictionary:
+===========
+Match keys to values.
+Look up one item by another item.
+no order is guaranteed. 
+key can be any immutable type.
+
+FIBONACCCI with dictionary:
+def fib_func(n,d):
+    if n in d:
+        return d[n]
+    else:
+        ans = fib_func(n-1,d) + fib_func(n-2, d)
+        d[n] = ans
+        return ans
+        
+d= {1:1, 2:2}
+print(fib_func(6,d))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
