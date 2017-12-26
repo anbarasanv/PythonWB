@@ -8,6 +8,6 @@ while(i>0):
         else:
             print("#",end='')
         j+=1
-    print('\n')
+    print('\r')
     i-=1
 
