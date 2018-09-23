@@ -1,4 +1,4 @@
-inp = 'aaaxaaxbbbd'
+inp = 'aaabbabbbccbc'
 lst = list(inp)
 def popitems(lst):
     print('\n',lst)
@@ -8,12 +8,24 @@ def popitems(lst):
     for i in range(strlen):
         if(prev == lst[i]):
             count +=1
+            if(i==strlen-1):
+                if(count%2 == 0):
+                    j = i
+                    while(count > 0):
+                        lst.pop(j)
+                        count -=1
+                        j -=1                
+        else:
             if(count%2 == 0):
-                lst.pop(i)
-                lst.pop(i-1)
-                print('Modified: ',lst)
+                j = i
+                while(count > 0):
+                    lst.pop(j-1)
+                    count -=1
+                    j -=1
                 return popitems(lst)
-        prev = lst[i]
+            count = 1
+        if(i<len(lst)):
+            prev = lst[i]
     return lst
-print(popitems(lst))
+print('\n final list',popitems(lst))
                 
