@@ -7,7 +7,6 @@ def maxSumSubarray(arr):
     finalMax,tempMax = -sys.maxsize ,0
     for i in range(len(arr)):
         tempMax = tempMax+arr[i]
-        print('tempMax:',tempMax)
         if tempMax > finalMax:
             print('finalMax:',finalMax)
             finalMax = tempMax
