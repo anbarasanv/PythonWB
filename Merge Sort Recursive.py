@@ -1,3 +1,4 @@
+#Time complexity O(n log n)
 def merge(left,right):
     '''This Function will merge 2 array or list'''
     result = []
