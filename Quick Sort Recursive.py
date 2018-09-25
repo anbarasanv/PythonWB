@@ -11,9 +11,14 @@ step 4: now recursively call the "Quick_Sort" function
 
 
 '''
+import  timeit
+start = timeit.timeit()
 def Quick_Sort(A,begin,end):
     '''Recursively sort the elements'''
     if begin < end:
+         #To make the Quick_Sort random, will reduce the time complexity for sorted list
+        A[begin],A[end] = A[end],A[begin] 
+        
         partition_index = Partition(A,begin,end)
         Quick_Sort(A,begin,partition_index-1)
         Quick_Sort(A,partition_index+1,end)
@@ -38,4 +43,9 @@ begin = 0
 end = len(A)-1
 Quick_Sort(A,begin,end)
 print(A)
-    
+stop = timeit.timeit()
+
+print("Time taken:",start - stop)
+
+#With randomized Time taken: -0.0014381029977812432
+#Without randomized Time taken: 4.344100034359144e-05
