@@ -7,12 +7,10 @@ def Even_palindrom():
     while(True):
         l = [lst]*count
         permutations = [list(i) for i in list(product(*l))]
-        print(permutations)
         for p in permutations:
             num = ''.join(p)
             reverse = ''.join(list(reversed(list(num))))
             if(num == reverse):
-                print(num)
                 i +=1
                 if(i == inp):
                     return int(num)              
